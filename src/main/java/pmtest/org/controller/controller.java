@@ -1,11 +1,22 @@
 package pmtest.org.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import pmtest.org.model.Team;
+import pmtest.org.service.TeamServiceImplementation;
+
 
 @Controller
+@RequestMapping
 public class controller {
+
+    private static final org.apache.logging.log4j.Logger logger =  org.apache.logging.log4j.LogManager.getLogger(controller.class);
+
+    @Autowired
+    private TeamServiceImplementation teamServiceImplementation;
+
 
     @RequestMapping (value = "/start", method = RequestMethod.GET)
     public String startPmExpress(){
@@ -22,12 +33,15 @@ public class controller {
         return "passData.jsp";
     }
 
-    @PostMapping (value = "/passData")
-    public ModelAndView passDataFromUser (@ModelAttribute("team") Team team, ModelAndView modelAndView){
-        System.out.println(team);
-        modelAndView.setViewName("forward:sum.jsp");
-        modelAndView.addObject("team", team);
-        return modelAndView;
+    @GetMapping (value = "/sum")
+    public String sum (){
+        return "sum.jsp";
+    }
+
+    @PostMapping (value = "/add")
+    public String addNewTeam(){
+        logger.info("New Team with id"+ teamServiceImplementation.addTeam(new Team()).getId() + "was sucessfully added");
+        return "redirect:/passData";
     }
 
 }

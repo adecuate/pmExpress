@@ -1,20 +1,47 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: myFractalDesign
-  Date: 03.02.2020
-  Time: 10:23
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 <html>
 <head>
-    <title>Pass Data</title>
+    <link href="<c:url value = "/resources/css/team_input.css?v=@buildNumber" />" rel=stylesheet>
+    <script src="<c:url value = "/resources/js/table_creation.js" />"> </script>
+    <title>Teams</title>
 </head>
 <body>
-<form id="user-form" action="/passData" method="post" modelAttribute="${team}">
-    <p> First team Name: <input type="text" name="firstTeamName"></p>
-    <p> Second team Name: <input type="text" name="secTeamName"></p>
-    <input type="submit" value="Pass Data">
+<table id="table" style="display: none" >
+    <thead>
+    <tr>
+        <th width="500px" height="15">Події</th>
+        <th height="15px">Коєфіцієнт</th>
+        <th height="15px">Повернення</th>
+        <th height="15px">Програш</th>
+    </tr>
+    </thead>
+</table>
+
+<div>
+    <h2> Введіть кількість подій: </h2>
+
+    <select id ="loc">
+        <option selected="selected">2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+        <option>9</option>
+        <option>10</option>
+        <option>11</option>
+        <option>12</option>
+    </select>
+
+    <button id="draw" onclick="addTable()">Підтвердити</button>
+
+    <p></p>
+    <form method="post" action="/add">
+        <input type="submit" class="input-box" value="Add team">
     </form>
+</div>
 </body>
+
 </html>
