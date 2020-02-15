@@ -4,19 +4,25 @@
 <head>
     <link href="<c:url value = "/resources/css/team_input.css?v=@buildNumber" />" rel=stylesheet>
     <script src="<c:url value = "/resources/js/table_creation.js" />"> </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <title>Teams</title>
 </head>
 <body>
-<table id="table" style="display: none" >
-    <thead>
-    <tr>
-        <th width="500px" height="15">Події</th>
-        <th height="15px">Коєфіцієнт</th>
-        <th height="15px">Повернення</th>
-        <th height="15px">Програш</th>
-    </tr>
-    </thead>
-</table>
+    <form id="fSaveDb" name="fSaveDb" method="post" action="/add">
+        <input type="text" name="nameEvent" id="nameEvent">
+        <input type="number" name="kefEvent" id="kefEvent">
+        <input type="submit" class="input-box" value="Add team">
+        <table id="table" style="display: none" >
+          <thead>
+            <tr>
+             <th width="500px" height="15">Події</th>
+             <th height="15px">Коєфіцієнт</th>
+             <th height="15px">Повернення</th>
+             <th height="15px">Програш</th>
+            </tr>
+          </thead>
+        </table>
+    </form>
 
 <div>
     <h2> Введіть кількість подій: </h2>
@@ -36,11 +42,12 @@
     </select>
 
     <button id="draw" onclick="addTable()">Підтвердити</button>
+    <button id="test" onclick="saveToDb()">test</button>
+
+
 
     <p></p>
-    <form method="post" action="/add">
-        <input type="submit" class="input-box" value="Add team">
-    </form>
+
 </div>
 </body>
 

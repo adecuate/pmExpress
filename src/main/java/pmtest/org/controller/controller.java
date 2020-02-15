@@ -3,9 +3,13 @@ package pmtest.org.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 import pmtest.org.model.Team;
 import pmtest.org.service.TeamServiceImplementation;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 
 @Controller
@@ -39,8 +43,12 @@ public class controller {
     }
 
     @PostMapping (value = "/add")
-    public String addNewTeam(){
-        logger.info("New Team with id"+ teamServiceImplementation.addTeam(new Team()).getId() + "was sucessfully added");
+    public String addNewEvent(HttpServletRequest httpServletRequest){
+        Team event1 = new Team();
+      //  teamServiceImplementation.addListTeam(events);
+      // event.setNameEvent(httpServletRequest.getParameter("nameEvent"));
+        // event.setKefEvent(Integer.parseInt(httpServletRequest.getParameter("kefEvent")));
+      //  logger.info("New Team with id  "+ teamServiceImplementation.addTeam(event).getId() +" and Name "+teamServiceImplementation.addTeam(event).getNameEvent() +" was sucessfully added  ");
         return "redirect:/passData";
     }
 

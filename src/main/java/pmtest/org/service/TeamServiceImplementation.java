@@ -5,8 +5,15 @@ import org.springframework.stereotype.Service;
 import pmtest.org.dao.repositories.TeamRepository;
 import pmtest.org.model.Team;
 
+import java.util.List;
+
 @Service
 public class TeamServiceImplementation implements TeamServiceInterface{
+
+    @Override
+    public List<Team> addListTeam(List<Team> events) {
+        return (List<Team>) teamRepository.saveAll(events);
+    }
 
     private TeamRepository teamRepository;
 

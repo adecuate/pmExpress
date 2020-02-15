@@ -1,10 +1,11 @@
 package pmtest.org.service;
 
-import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 import pmtest.org.model.Team;
+
+import java.util.List;
 
 
 public interface TeamServiceInterface {
     Team addTeam (Team team);
+    Iterable<Team> addListTeam (List<Team> team);
 }

@@ -1,50 +1,41 @@
 package pmtest.org.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
+
+import lombok.Getter;
+import lombok.Setter;
+
+import javax.persistence.*;
+import java.io.Serializable;
+
+@Getter
+@Setter
 @Entity
-public class Team {
+@Table (name = "team")
+public class Team implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column (name = "id")
     private long id;
+    @Column (name = "nameEvent")
+    private String nameEvent;
+    @Column (name = "kefEvent")
+    private int kefEvent;
 
     public long getId() {
         return id;
     }
 
+    @Override
+    public String toString() {
+        return String.join(",", new String[]{
+                "Event #", String.valueOf(id),
+                nameEvent,String.valueOf(kefEvent)
+        });
+    }
+
     public void setId(long id) {
         this.id = id;
     }
-
-    @Override
-    public String toString() {
-        return "Team{" +
-                "id=" + id +
-                '}';
-    }
-
-    private String firstTeamName;
-    private String secTeamName;
-
-
-    public String getFirstTeamName() {
-        return firstTeamName;
-    }
-
-    public void setFirstTeamName(String firstTeamName) {
-        this.firstTeamName = firstTeamName;
-    }
-
-    public String getSecTeamName() {
-        return secTeamName;
-    }
-
-    public void setSecTeamName(String secTeamName) {
-        this.secTeamName = secTeamName;
-    }
-
 
 }
