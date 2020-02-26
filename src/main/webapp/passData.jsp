@@ -8,10 +8,7 @@
     <title>Teams</title>
 </head>
 <body>
-    <form id="fSaveDb" name="fSaveDb" method="post" action="/add">
-        <input type="text" name="nameEvent" id="nameEvent">
-        <input type="number" name="kefEvent" id="kefEvent">
-        <input type="submit" class="input-box" value="Add team">
+    <form id="fSaveDb" name="fSaveDb">
         <table id="table" style="display: none" >
           <thead>
             <tr>
@@ -21,6 +18,14 @@
              <th height="15px">Програш</th>
             </tr>
           </thead>
+        </table>
+
+        <table id="tableSum" style="display: none" >
+            <thead>
+            <tr>
+                <th width="500px" height="15">Сума ставки</th>
+            </tr>
+            </thead>
         </table>
     </form>
 
@@ -40,14 +45,9 @@
         <option>11</option>
         <option>12</option>
     </select>
-
     <button id="draw" onclick="addTable()">Підтвердити</button>
-    <button id="test" onclick="saveToDb()">test</button>
-
-
-
+    <button id="test" onclick="saveToDb()">Розрахувати</button>
     <p></p>
-
 </div>
 </body>
 

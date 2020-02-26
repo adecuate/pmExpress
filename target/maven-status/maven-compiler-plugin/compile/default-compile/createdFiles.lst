@@ -1,5 +1,0 @@
-pmtest\org\model\Team.class
-pmtest\org\service\TeamServiceImplementation.class
-pmtest\org\controller\controller.class
-pmtest\org\dao\repositories\TeamRepository.class
-pmtest\org\service\TeamServiceInterface.class

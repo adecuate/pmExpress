@@ -19,9 +19,25 @@ h2{
 }
 
 input.input-box, textarea {
+    font-size: 20px;
     background-color : #FFD30D;
 }
 
+label {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    text-align: left;
+    border-collapse: separate;
+    border-spacing: 5px;
+    background: #ECE9E0;
+    color: #656665;
+    border: 16px solid #ECE9E0;
+    border-radius: 20px;
+}
+
+label1{
+    font-size: 20px;
+    color : #FFD30D;
+}
 
 table {
     font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;

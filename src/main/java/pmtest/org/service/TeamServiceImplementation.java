@@ -1,25 +1,43 @@
 package pmtest.org.service;
 
+import com.google.common.collect.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pmtest.org.dao.repositories.TeamRepository;
-import pmtest.org.model.Team;
+import pmtest.org.model.Event;
+import pmtest.org.model.EventWrapper;
 
 import java.util.List;
 
 @Service
-public class TeamServiceImplementation implements TeamServiceInterface{
-
-    @Override
-    public List<Team> addListTeam(List<Team> events) {
-        return (List<Team>) teamRepository.saveAll(events);
-    }
+public class TeamServiceImplementation implements TeamServiceInterface {
 
     private TeamRepository teamRepository;
 
     @Override
-    public Team addTeam(Team team) {
-        return teamRepository.save(team);
+    public List<String> getNameEvent() {
+        return teamRepository.getNameEvent();
+    }
+
+    @Override
+    public List<Event> addListTeam(List<Event> events) {
+        return (List<Event>) teamRepository.saveAll(events);
+    }
+
+
+    @Override
+    public List<Event> findAll() {
+        return Lists.newArrayList(teamRepository.findAll());
+    }
+
+    @Override
+    public List<Event> listAllEvents() {
+        return (List<Event>)teamRepository.findAll();
+    }
+
+    @Override
+    public Event addTeam(Event event) {
+        return teamRepository.save(event);
     }
 
     @Autowired
