@@ -7,5 +7,11 @@
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://localhost:3306/pmexpress</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="heroku_9c645c50730c164@eu-cdbr-west-02.cleardb.net" uuid="52cf78b1-56e9-41cd-afc5-b20366fe1ff8">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://eu-cdbr-west-02.cleardb.net:3306/heroku_9c645c50730c164?reconnect=true</jdbc-url>
+    </data-source>
   </component>
 </project>
